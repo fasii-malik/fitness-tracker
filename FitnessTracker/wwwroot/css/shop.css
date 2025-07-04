@@ -1,0 +1,67 @@
+﻿body {
+    background-color: rgb(186, 216, 125);
+    font-family: 'Work Sans';
+}
+
+.card {
+    background-color: rgb(46, 45, 45);
+    color: white;
+    margin: 20px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+    .card:hover {
+        background-color: rgb(36, 34, 34);
+        color: white;
+        margin: 20px;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    }
+
+.mybtn {
+    background-color: transparent;
+    border-color: rgba(186, 216, 125, 0.863);
+    color: rgba(186, 216, 125, 0.863);
+    padding: 1.8vh 4.5vh;
+    border-radius: 3px;
+}
+
+
+.myimg {
+    padding: 0.3rem;
+    max-height: 150px;
+    object-fit: cover;
+}
+
+.price {
+    margin-top: 1rem;
+}
+
+a {
+    color: unset;
+}
+
+    a:hover {
+        text-decoration: none;
+    }
+
+.lower .col {
+    padding: 0;
+}
+
+.radio input {
+    visibility: hidden;
+    pointer-events: none;
+}
+
+.radio span {
+    padding: 1vh 4vh;
+    background-color: rgb(54, 54, 54);
+    color: grey;
+    display: inline-block;
+    margin-right: 2vh;
+}
+
+.radio input:checked + span {
+    border: 1px solid white;
+    color: white;
+}

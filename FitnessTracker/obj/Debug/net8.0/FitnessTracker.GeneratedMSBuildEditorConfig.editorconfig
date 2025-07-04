@@ -1,0 +1,159 @@
+is_global = true
+build_property.TargetFramework = net8.0
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = FitnessTracker
+build_property.RootNamespace = FitnessTracker
+build_property.ProjectDir = C:\Users\Fasih\Desktop\WorkSpaces\FitnessTracker MaterialTheme\FitnessTracker\
+build_property.EnableComHosting = 
+build_property.EnableGeneratedComInterfaceComImportInterop = 
+build_property.RazorLangVersion = 8.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.MSBuildProjectDirectory = C:\Users\Fasih\Desktop\WorkSpaces\FitnessTracker MaterialTheme\FitnessTracker
+build_property._RazorSourceGeneratorDebug = 
+
+[C:/Users/Fasih/Desktop/WorkSpaces/FitnessTracker MaterialTheme/FitnessTracker/Views/Admin/Customers.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cQ3VzdG9tZXJzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Fasih/Desktop/WorkSpaces/FitnessTracker MaterialTheme/FitnessTracker/Views/Admin/Dashboard.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cRGFzaGJvYXJkLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Fasih/Desktop/WorkSpaces/FitnessTracker MaterialTheme/FitnessTracker/Views/Admin/EditCustomer.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cRWRpdEN1c3RvbWVyLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Fasih/Desktop/WorkSpaces/FitnessTracker MaterialTheme/FitnessTracker/Views/Admin/RolesIndex.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cUm9sZXNJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Fasih/Desktop/WorkSpaces/FitnessTracker MaterialTheme/FitnessTracker/Views/Admin/TrainerIndex.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cVHJhaW5lckluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Fasih/Desktop/WorkSpaces/FitnessTracker MaterialTheme/FitnessTracker/Views/Cart/CartIndex.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2FydFxDYXJ0SW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Fasih/Desktop/WorkSpaces/FitnessTracker MaterialTheme/FitnessTracker/Views/Category/AddCategory.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2F0ZWdvcnlcQWRkQ2F0ZWdvcnkuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Fasih/Desktop/WorkSpaces/FitnessTracker MaterialTheme/FitnessTracker/Views/Category/EditCategory.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2F0ZWdvcnlcRWRpdENhdGVnb3J5LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Fasih/Desktop/WorkSpaces/FitnessTracker MaterialTheme/FitnessTracker/Views/Category/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2F0ZWdvcnlcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Fasih/Desktop/WorkSpaces/FitnessTracker MaterialTheme/FitnessTracker/Views/Home/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Fasih/Desktop/WorkSpaces/FitnessTracker MaterialTheme/FitnessTracker/Views/Home/Login.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxMb2dpbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Fasih/Desktop/WorkSpaces/FitnessTracker MaterialTheme/FitnessTracker/Views/Home/Privacy.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Fasih/Desktop/WorkSpaces/FitnessTracker MaterialTheme/FitnessTracker/Views/Home/Shop.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxTaG9wLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Fasih/Desktop/WorkSpaces/FitnessTracker MaterialTheme/FitnessTracker/Views/Home/Signup.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxTaWdudXAuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Fasih/Desktop/WorkSpaces/FitnessTracker MaterialTheme/FitnessTracker/Views/Order/OrderDetailPreview.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT3JkZXJcT3JkZXJEZXRhaWxQcmV2aWV3LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Fasih/Desktop/WorkSpaces/FitnessTracker MaterialTheme/FitnessTracker/Views/Order/OrderHistory.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT3JkZXJcT3JkZXJIaXN0b3J5LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Fasih/Desktop/WorkSpaces/FitnessTracker MaterialTheme/FitnessTracker/Views/Order/OrderSuccess.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT3JkZXJcT3JkZXJTdWNjZXNzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Fasih/Desktop/WorkSpaces/FitnessTracker MaterialTheme/FitnessTracker/Views/Product/Add.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdFxBZGQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Fasih/Desktop/WorkSpaces/FitnessTracker MaterialTheme/FitnessTracker/Views/Product/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdFxFZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Fasih/Desktop/WorkSpaces/FitnessTracker MaterialTheme/FitnessTracker/Views/Product/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdFxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Fasih/Desktop/WorkSpaces/FitnessTracker MaterialTheme/FitnessTracker/Views/Shared/Error.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Fasih/Desktop/WorkSpaces/FitnessTracker MaterialTheme/FitnessTracker/Views/Shared/_AdminLayout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9BZG1pbkxheW91dC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Fasih/Desktop/WorkSpaces/FitnessTracker MaterialTheme/FitnessTracker/Views/Shared/_AdminMasterLayout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9BZG1pbk1hc3RlckxheW91dC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Fasih/Desktop/WorkSpaces/FitnessTracker MaterialTheme/FitnessTracker/Views/Shared/_Notification.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9Ob3RpZmljYXRpb24uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Fasih/Desktop/WorkSpaces/FitnessTracker MaterialTheme/FitnessTracker/Views/Shared/_ValidationScriptsPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Fasih/Desktop/WorkSpaces/FitnessTracker MaterialTheme/FitnessTracker/Views/Workout/AddWorkout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcV29ya291dFxBZGRXb3Jrb3V0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Fasih/Desktop/WorkSpaces/FitnessTracker MaterialTheme/FitnessTracker/Views/Workout/DietIndex.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcV29ya291dFxEaWV0SW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Fasih/Desktop/WorkSpaces/FitnessTracker MaterialTheme/FitnessTracker/Views/Workout/EditWorkout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcV29ya291dFxFZGl0V29ya291dC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Fasih/Desktop/WorkSpaces/FitnessTracker MaterialTheme/FitnessTracker/Views/Workout/PersonalizedWorkout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcV29ya291dFxQZXJzb25hbGl6ZWRXb3Jrb3V0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Fasih/Desktop/WorkSpaces/FitnessTracker MaterialTheme/FitnessTracker/Views/Workout/WorkoutAdmin.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcV29ya291dFxXb3Jrb3V0QWRtaW4uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Fasih/Desktop/WorkSpaces/FitnessTracker MaterialTheme/FitnessTracker/Views/Workout/WorkoutIndex.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcV29ya291dFxXb3Jrb3V0SW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Fasih/Desktop/WorkSpaces/FitnessTracker MaterialTheme/FitnessTracker/Views/Workout/WorkoutList.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcV29ya291dFxXb3Jrb3V0TGlzdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Fasih/Desktop/WorkSpaces/FitnessTracker MaterialTheme/FitnessTracker/Views/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Fasih/Desktop/WorkSpaces/FitnessTracker MaterialTheme/FitnessTracker/Views/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Fasih/Desktop/WorkSpaces/FitnessTracker MaterialTheme/FitnessTracker/Views/Shared/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = b-gtt65ath5f

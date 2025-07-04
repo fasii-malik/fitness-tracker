@@ -1,0 +1,73 @@
+﻿@model List<FitnessTracker.Models.Entities.Workout>
+<!DOCTYPE html>
+<html lang="en">
+<body>
+    @if(Model.Count() > 0)
+    {
+        <div class="BorderWithColorProd">
+            <div class="row">
+                <div class="col-12">
+                    <h2 class="text-dark">Exercise List</h2>
+                    <hr />
+                </div>
+                <div class="col-5">
+                    <a asp-action="AddWorkout" class="btn btn-dark form-control">Add Exercise</a>
+                </div>
+
+                <div class="PaddingAllWhite">
+                    <div class="table-responsive">
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr class="bg-secondary text-white">
+                                    <th>Name</th>
+                                    <th>Reps</th>
+                                    <th>Description</th>
+                                    <th>Category</th>
+                                    <th>Primary Muscle Worked</th>
+                                    <th>Secondary Muscle Worked</th>
+                                    <th>Image</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var items in Model)
+                                {
+                                    <tr>
+                                        <td>@items.Name</td>
+                                        <td>@items.Reps</td>
+                                        <td>@Html.Raw(items.Description)</td>
+                                        <td>@items.WorkoutCategory.Name</td>
+                                        <td>@items.PrimaryMuscleWorked</td>
+                                        <td>@items.SecondaryMuscleWorked</td>
+                                        <td>
+                                            <img src="~/WorkoutImages/@items.HomeImgUrl" alt="No Image" class="rounded img-fluid" width="150" height="100" />
+                                        </td>
+                                        <td>
+                                            <a asp-route-id="@items.Id" asp-controller="Workout" asp-action="EditWorkout" class="btn btn-primary mb-1 form-control">Edit</a>
+                                            <a asp-route-id="@items.Id" asp-controller="Workout" asp-action="DeleteWorkout" class="btn btn-danger form-control">Delete</a>
+                                        </td>
+                                    </tr>
+                                }
+
+
+                            </tbody>
+                        </table>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    }
+    else
+    {
+        <div class="container">
+            <h1 class="text-center m-5">No Exercises</h1>
+            <div class="col-5">
+                <a asp-action="AddWorkout" class="btn btn-dark form-control m-2">Add Exercise</a>
+            </div>
+        </div>
+        
+    }
+
+</body>
+</html>

@@ -1,0 +1,74 @@
+﻿@model FitnessTracker.Models.CartIndexVM
+
+<body class="bg-secondary">
+    <div class="container my-5" style="/* From https://css.glass */
+background: rgba(255, 255, 255, 0.2);
+border-radius: 16px;
+box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+backdrop-filter: blur(5px);
+-webkit-backdrop-filter: blur(5px);
+border: 1px solid rgba(255, 255, 255, 0.3);">
+        @if(@Model.productList.Count() > 0){
+        
+        <h1 class="text-center ">Cart List</h1>
+        <hr />
+        <table class="table table-dark table-hover table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th>Images</th>
+                    <th scope="col">Product Name</th>
+                    <th scope="col">Quantity</th>
+                    <th scope="col">Action</th>
+                </tr>
+            </thead>
+            
+            <tbody>
+                @foreach (var items in Model.productList)
+                    {
+                        <tr class="text-center">
+                        <td><img height="65px" width="65px" src="~/Images/@items.product.HomeImgUrl" /></td>
+                        <td>@items.product.Name</td>
+                        <td>
+                            <div class="row d-flex justify-content-center">
+                                <div class="col-lg-auto col-md-auto col-sm-auto">
+                                        <a class="btn btn-success" asp-action="AddToCart" asp-controller="Cart" asp-route-productId="@items.ProductId"
+                                           asp-route-returnUrl="Yes">
+                                            <i class="bi bi-plus-lg"></i>
+                                        </a>
+
+                                </div>
+                            
+                                <div class="col-lg-auto col-md-auto col-sm-auto">
+                                <label><strong>(@items.Quantity * @items.product.Price Pkr)</strong></label>
+                            </div>
+                                <div class="col-lg-auto col-md-auto col-sm-auto">
+                                    <a class="btn btn-warning" asp-controller="Cart" asp-action="MinusAnItem" asp-route-productId="@items.ProductId">
+                                        <i class="bi bi-dash-lg"></i>
+                                    </a>
+                                </div>
+                            
+                            </div>
+                        </td>
+                            <td>
+                                <a asp-controller="Cart" asp-action="DeleteAnItem" asp-route-productId="@items.ProductId" class="btn btn-danger">
+                                    <i class="bi bi-trash2"></i>
+                                </a>
+                            </td>
+
+                    
+                </tr>
+                    }
+            </tbody>
+        </table>
+        <div class="text-end">
+                <a class="btn btn-dark m-2" asp-controller="Order" asp-action="OrderDetailPreview" asp-route-id="@Model.productList.FirstOrDefault()">
+                Order Requesting
+            </a>
+        </div>
+        }
+        else{
+            <h2 class="text-center m-5">No Item in The Cart</h2>
+        }
+    </div>
+</body>
+

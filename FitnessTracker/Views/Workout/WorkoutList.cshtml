@@ -1,0 +1,68 @@
+﻿@model FitnessTracker.Models.WorkoutVM
+
+<body style="background: #110f16">
+    @if(Model.WorkoutCategoriesList.Count > 0)
+	{
+    <div class="container m-3 text-light">
+        @if(Model.WorkoutCategoriesList.Count <= 1)
+        {
+            @foreach(var category in Model.WorkoutCategoriesList)
+            {
+                <h1 class="text-center p-2 mb-5 text-secondary"><span>@category.Name</span> Training</h1>
+            }
+        }
+        else
+        {
+            <h1 class="text-center p-2 mb-5 text-secondary">All Trainings</h1>
+        }
+
+        @foreach (var item in Model.WorkoutList)
+        {
+        <div class="row">
+            
+                <div class="col-6">
+                    <h2>Muscles Worked in <span>@item.Name</span></h2>                    
+                            <img style="background-color: transparent" class="img-fluid p-3" src="~/WorkoutImages/@item.HomeImgUrl" />                                        
+                </div>
+                <div class="col-6 ">
+
+                    <h2 class="">How to Do <span>@item.Name</span></h2>
+                    <hr />
+                
+                
+                <div class="p-4 col-8">
+                        @{
+                            var desc = item.Description.Split(".");
+                        }
+                        @* @foreach (var des in desc)
+                        {
+                            <p>@des.</p>
+                        } *@
+                        @for (int i = 0; i < desc.Length - 1; i++)
+                        {
+                            <p>@desc[i].</p>
+                        }
+                </div>
+                
+            </div>
+            
+        </div>
+        <div class="row mt-5">
+            <div class="col-6">
+                <h3>Primary Muscle Worked</h3>
+                <p>@item.PrimaryMuscleWorked</p>
+                <br />
+                <h3>Secondary Muscle Worked</h3>
+                <p>@item.SecondaryMuscleWorked</p>
+
+            </div>           
+        </div>
+        <hr />
+        }
+        </div>
+    }
+    else
+    {
+        <h1 class="text-center m-5 p-5">No Exercises of this Category!</h1>
+    }
+</body>
