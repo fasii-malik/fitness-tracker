@@ -1,0 +1,105 @@
+﻿@model FitnessTracker.Models.ShopVM
+
+<html >
+
+
+<Head>
+    <!-- Add Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="~/css/shop.css" rel="stylesheet" />
+</Head>
+
+<body style="margin-bottom:15px">
+    
+    <div style="margin-bottom:30px" class="row">
+        <!--Column for Side Bar-->
+        <div class="col-2 bg-light" style="height:100vh">
+            <div >
+                <h5 style="padding:16px 16px 0 16px">Shop By Category</h5>
+                <hr />
+                @foreach (var items in Model.CategoryList)
+                {
+                    <a style="display: block;
+    color: black;
+    padding: 16px;
+    text-decoration: none;" asp-action="Shop" asp-route-searchByCategory="@items.Name">@items.Name</a>
+                }
+            <hr />
+            </div>
+        </div>
+            
+            
+            
+        
+        <!--Column for Products-->
+        <div class="col-10">
+
+            <div class="row m-1 ">
+                <div class="col-8"></div>
+                <div class="col-4">
+                    <form class="form-inline my-2 my-lg-0" asp-controller="Home" asp-action="Shop" method="get">
+                        <input asp-for="searchByName" class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                    </form>
+                </div>
+                
+            </div>
+
+
+    <div class="container">
+        <hr />
+        <div class="row">
+  @foreach(var items in Model.ProductList){
+                <!-- First Card -->
+                <div class="col-md-4">
+                    <div class="card p-1" style="font-size:0.8rem;">
+                        <div class="row">
+                            <div class="col-5 text-center align-self-center">
+                                <img  class="myimg img-fluid" src="~/Images/@items.HomeImgUrl">
+                            </div>
+
+                            <div class="col-7 info">
+                                <div class="row title">
+                                    <div class="col">
+                                        <h5>@items.Name</h5>
+                                    </div>
+                                    <div class="col text-right">
+                                        <a href="#"><i class="fa fa-heart-o"></i></a>
+                                    </div>
+                                </div>
+                                <p>@items.Description.Substring(0,35)...</p>
+                                <div class="row price ">
+                                    <label class="radio">
+                                        <input type="radio" name="size1" value="small" >
+                                        <span>
+                                            <div class="row">@items.Price pkr</div>
+                                        </span>
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="col text-right align-self-center">
+                                <a  asp-controller="Cart" asp-action="AddToCart" asp-route-productId="@items.Id" class="mybtn btn text-light">Add to cart</a>
+                            </div>
+                        </div>
+                        <div class="row lower">
+                            <div class="col">
+                                <a class="carousel-control-prev" href="#demo" data-slide="prev"><i class="fa fa-arrow-left"></i></a>
+                                <a class="carousel-control-next" href="#demo" data-slide="next"><i class="fa fa-arrow-right"></i></a>
+                            </div>
+                          
+                        </div>
+                    </div>
+                </div>
+
+
+
+            }
+        </div>
+    </div>
+
+
+        </div>
+    </div>
+    </div>
+</body>
+</html>

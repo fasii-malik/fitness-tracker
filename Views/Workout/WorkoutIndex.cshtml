@@ -1,0 +1,163 @@
+﻿@model FitnessTracker.Models.WorkoutVM
+<head>
+    <link href="~/css/workoutindex.css" rel="stylesheet" />
+</head>
+
+@{
+	int strengthId = 1;
+	int enduranceId = 1;
+	int cardioId = 1;
+	foreach (var item in Model.WorkoutCategoriesList)
+	{
+		if(item.Name == "Strength")
+		{
+			strengthId = item.Id; 
+		}
+		else if (item.Name == "Endurance")
+		{
+			enduranceId = item.Id;
+		}
+		else if (item.Name == "Cardio")
+		{
+			cardioId = item.Id;
+		}
+	}
+}
+<section class="dark">
+	
+		<div class="container py-4">
+		<h1 class="h1 text-center" id="pageHeaderTitle"><a class="text-secondary" asp-controller="Workout" asp-action="WorkoutList">Workouts</a></h1>
+
+		<article class="postcard dark blue">
+			<a class="postcard__img_link" href="#">
+				<img class="postcard__img" src="https://picsum.photos//1000/1000" alt="Image Title" />
+			</a>
+			<div class="postcard__text">
+				<h1 class="postcard__title blue"><a asp-controller="Workout" asp-action="WorkoutList" asp-route-workoutCategoryId="@strengthId">Strength</a></h1>
+				<div class="postcard__subtitle small">
+					<time datetime="2020-05-25 12:00:00">
+						<i class="fas fa-calendar-alt mr-2"></i>@DateTime.Now
+					</time>
+				</div>
+				<div class="postcard__bar"></div>
+				<div class="postcard__preview-txt">Strength training (also known as resistance training) is a type of exercise that causes your muscles to contract 
+					against an outside resistance. The outside resistance can be from your body weight, weight machines, medicine balls, resistance bands or dumbbells.</div>
+				<ul class="postcard__tagbox">
+					<li class="tag__item"><i class="fas fa-tag mr-2"></i><a asp-controller="Workout" asp-action="WorkoutList" asp-route-workoutCategoryId="@strengthId">How To</a></li>
+					<li class="tag__item play blue">
+						<a href="#"><i class="fas fa-play mr-2"></i>Play</a>
+					</li>
+				</ul>
+			</div>
+		</article>
+		<article class="postcard dark red">
+			<a class="postcard__img_link" href="#">
+				<img class="postcard__img" src="https://picsum.photos/501/500" alt="Image Title" />
+			</a>
+			<div class="postcard__text">
+				<h1 class="postcard__title red"><a asp-controller="Workout" asp-action="WorkoutList" asp-route-workoutCategoryId="@enduranceId">Endurance</a></h1>
+				<div class="postcard__subtitle small">
+					<time datetime="2020-05-25 12:00:00">
+						<i class="fas fa-calendar-alt mr-2"></i>Mon, May 25th 2020
+					</time>
+				</div>
+				<div class="postcard__bar"></div>
+				<div class="postcard__preview-txt">Endurance exercise a general ability to do any kind of physical activity that increases your heart rate 
+					above 50% of your maximum. It can be divided into general endurance and specific endurance. Specific endurance is the ability to stand 
+					against fatigue in sport specific conditions.</div>
+				<ul class="postcard__tagbox">
+					<li class="tag__item"><i class="fas fa-tag mr-2"></i><a asp-controller="Workout" asp-action="WorkoutList" asp-route-workoutCategoryId="@enduranceId">How To</a></li>@* 1001 *@
+					
+					<li class="tag__item play red">
+						<a href="#"><i class="fas fa-play mr-2"></i>Play</a>
+					</li>
+				</ul>
+			</div>
+		</article>
+		<article class="postcard dark green">
+			<a class="postcard__img_link" href="#">
+				<img class="postcard__img" src="https://picsum.photos/500/501" alt="Image Title" />
+			</a>
+			<div class="postcard__text">
+				<h1 class="postcard__title green"> <a asp-controller="Workout" asp-action="WorkoutList" asp-route-workoutCategoryId="@cardioId">Cardio</a></h1>
+				<div class="postcard__subtitle small">
+					<time datetime="2020-05-25 12:00:00">
+						<i class="fas fa-calendar-alt mr-2"></i>Mon, May 25th 2024
+					</time>
+				</div>
+				<div class="postcard__bar"></div>
+				<div class="postcard__preview-txt">Cardiovascular exercise is any vigorous activity that increases heart rate and respiration and raises 
+					oxygen and blood flow throughout the body while using large muscle groups of the body repetitively and rhythmically.</div>
+				<ul class="postcard__tagbox">
+					<li class="tag__item"><i class="fas fa-tag mr-2"></i><a asp-controller="Workout" asp-action="WorkoutList" asp-route-workoutCategoryId="@cardioId">How To</a></li>
+					<li class="tag__item play green">
+						<a href="#"><i class="fas fa-play mr-2"></i>Play</a>
+					</li>
+				</ul>
+			</div>
+		</article>
+		
+	</div>
+</section>
+
+<section class="light">
+	<div class="container py-2">
+		<div class="h1 text-center text-dark" id="pageHeaderTitle">Diet Plans</div>
+
+		<article class="postcard light blue">
+			<a class="postcard__img_link" href="#">
+				<img class="postcard__img" src="https://picsum.photos/1000/1000" alt="Image Title" />
+			</a>
+			<div class="postcard__text t-dark">
+				<h1 class="postcard__title blue"><a href="#">Strength</a></h1>
+				<div class="postcard__subtitle small">
+					<time datetime="2020-05-25 12:00:00">
+						<i class="fas fa-calendar-alt mr-2"></i>Mon, May 25th 2024
+					</time>
+				</div>
+				<div class="postcard__bar"></div>
+				<div class="postcard__preview-txt">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi, fugiat asperiores inventore beatae accusamus odit minima enim, commodi quia, doloribus eius! Ducimus nemo accusantium maiores velit corrupti tempora reiciendis molestiae repellat vero. Eveniet ipsam adipisci illo iusto quibusdam, sunt neque nulla unde ipsum dolores nobis enim quidem excepturi, illum quos!</div>
+				<ul class="postcard__tagbox">
+					<li class="tag__item"><i class="fas fa-tag mr-2"></i><a asp-controller="Workout" asp-action="DietIndex">Read</a></li>
+				</ul>
+			</div>
+		</article>
+		<article class="postcard light red">
+			<a class="postcard__img_link" href="#">
+				<img class="postcard__img" src="https://picsum.photos/501/500" alt="Image Title" />
+			</a>
+			<div class="postcard__text t-dark">
+				<h1 class="postcard__title red"><a href="#">Endurance</a></h1>
+				<div class="postcard__subtitle small">
+					<time datetime="2020-05-25 12:00:00">
+						<i class="fas fa-calendar-alt mr-2"></i>Mon, May 25th 2024
+					</time>
+				</div>
+				<div class="postcard__bar"></div>
+				<div class="postcard__preview-txt">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi, fugiat asperiores inventore beatae accusamus odit minima enim, commodi quia, doloribus eius! Ducimus nemo accusantium maiores velit corrupti tempora reiciendis molestiae repellat vero. Eveniet ipsam adipisci illo iusto quibusdam, sunt neque nulla unde ipsum dolores nobis enim quidem excepturi, illum quos!</div>
+				<ul class="postcard__tagbox">
+					<li class="tag__item"><i class="fas fa-tag mr-2"></i><a asp-controller="Workout" asp-action="DietIndex">Read</a></li>
+				</ul>
+			</div>
+		</article>
+		<article class="postcard light green">
+			<a class="postcard__img_link" href="#">
+				<img class="postcard__img" src="https://picsum.photos/500/501" alt="Image Title" />
+			</a>
+			<div class="postcard__text t-dark">
+				<h1 class="postcard__title green"><a href="#">Cardio</a></h1>
+				<div class="postcard__subtitle small">
+					<time datetime="2020-05-25 12:00:00">
+						<i class="fas fa-calendar-alt mr-2"></i>Mon, May 25th 2024
+					</time>
+				</div>
+				<div class="postcard__bar"></div>
+				<div class="postcard__preview-txt">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi, fugiat asperiores inventore beatae accusamus odit minima enim, commodi quia, doloribus eius! Ducimus nemo accusantium maiores velit corrupti tempora reiciendis molestiae repellat vero. Eveniet ipsam adipisci illo iusto quibusdam, sunt neque nulla unde ipsum dolores nobis enim quidem excepturi, illum quos!</div>
+				<ul class="postcard__tagbox">
+					<li class="tag__item"><i class="fas fa-tag mr-2"></i><a asp-controller="Workout" asp-action="DietIndex">Read</a></li>
+				</ul>
+			</div>
+		</article>
+		
+	</div>
+	</section>

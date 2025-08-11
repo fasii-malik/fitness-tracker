@@ -1,0 +1,99 @@
+﻿@{
+    ViewData["Title"] = "Admin";
+
+    Layout = "~/Views/Shared/_AdminMasterLayout.cshtml";
+
+}
+@model FitnessTracker.Models.RolesVM
+
+<body class="bg-light">
+    <div class="container">
+        <div class="row">
+            <div class="col-9">
+                <h2 class="p-3">Trainers Avaliable</h2>
+            </div>
+
+            <table class="table table-sm table-bordered shadow">
+                <thead class="table-dark">                    
+                    <tr>                       
+                        <th class="text-center">Trainer Name</th>
+                        <th class="text-center">Trainer Username</th>                        
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var user in Model.usersWithTrainerRole)
+                    {
+                        <tr>
+                            <th class="text-center">@user.FirstName @user.LastName</th>
+                            <th class="text-center">@user.UserName</th>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+        <div class="row">
+
+            <div class="col-9">
+                <h2 class="p-3">Customers</h2>
+            </div>
+
+            <div class="col-3 text-center">
+               
+            </div>
+        </div>
+
+        <table class="table table-striped table-bordered table-hover shadow">
+            <thead class="table-dark">
+                <tr>
+                    <th class="text-center">User Name</th>
+                    <th class ="text-center">Assigned</th>
+                    <th class="text-center">Assign WorkoutPlan/DietPlan</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var user in Model.usersWithCustomerRole)
+                {
+                    <tr>
+                        <td>@user.UserName</td>
+                        <td class="text-center">
+                            @if (user.workout_diet_plan != null)
+                            {                                   
+                                    <span class="badge bg-success">@user.workout_diet_plan</span>
+                                
+                            }
+                            else
+                            {
+                                <span class="badge bg-secondary">Not Assigned</span>
+                            }
+                        </td>
+                        <td>
+                            <form asp-action="TrainerIndex" asp-controller="Admin" method="post">
+                                <input type="hidden" asp-for="UserId" value="@user.Id"/>
+                                <div class="row">
+                                    <div class="col-10">
+                                        <select asp-for="assignedPlan" class="form-select">
+                                            <option value="">Select Workout/DietPlan</option>
+
+                                            @foreach (var role in Model.AvailableRoles)
+                                            {
+                                                <option value="@role.Value">@role.Text</option>
+                                            }
+                                            
+                                        </select>
+
+                                    </div>
+                       
+                                    <div class="col-2">
+                                        <button type="submit" class="btn btn-success btn-sm mt-2">Assign</button>
+                                    </div>
+                                </div>
+
+                            </form>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+
+</body>

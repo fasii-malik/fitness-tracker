@@ -1,0 +1,49 @@
+html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
+  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  margin-bottom: 60px;
+}
+
+.BorderWithColorProd {
+    padding: 10px 0px 0px 0px;
+    margin: 20px 0px 0px 0px;
+    border: 1px solid white;
+    border-radius: 10px;
+    background-color: whitesmoke;
+}
+.PaddingAllWhite {
+    padding: 40px 20px 20px 20px;
+    margin: 20px 10px 10px 10px;
+    border: 2px solid white;
+    border-radius: 20px;
+    background-color: white;
+}
+.PaddingAll {
+    padding: 30px 20px 20px 20px;
+    margin: 10px 10px 10px 10px;
+    border: 2px solid white;
+    border-radius: 20px;
+    background-color: whitesmoke;
+}
+.shadowingBorder {
+    border-radius: 7px;
+    overflow: hidden;
+    box-shadow: 2px 2px 2px 2px pink;
+}

@@ -1,0 +1,70 @@
+## Ignore Visual Studio temporary files, build results, and
+## user-specific files
+
+# Build results
+bin/
+obj/
+
+# User-specific files
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# ASP.NET Scaffolding
+ScaffoldingReadMe.txt
+
+# Visual Studio Code settings
+.vscode/
+
+# Rider settings
+.idea/
+
+# ASP.NET temporary files
+**/App_Data/Temp/
+
+# IIS Express
+.vs/
+*.vspscc
+*.vssscc
+
+# Logs
+*.log
+
+# User secrets (if using .NET Core)
+secrets.json
+
+# Configuration files that should not be committed
+appsettings.json
+appsettings.*.json
+
+# Publish output
+publish/
+
+# Resharper files
+*.DotSettings.user
+
+# JetBrains Rider project files
+.idea/
+
+# NuGet packages
+*.nupkg
+packages/
+project.lock.json
+project.fragment.lock.json
+artifacts/
+
+# Optional: Ignore test results
+TestResults/
+*.TestResults/
+
+# Other build artifacts
+*.dll
+*.exe
+*.cache
+*.db
+*.pdb
+*.mdb
+*.bak
+*.backup
+

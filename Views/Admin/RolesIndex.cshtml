@@ -1,0 +1,106 @@
+﻿@{
+    ViewData["Title"] = "Admin";
+
+    Layout = "~/Views/Shared/_AdminMasterLayout.cshtml";
+}
+@using FitnessTracker.Models.Entities
+@model List<RolesVM>
+
+    <body class="bg-light">
+    <div class="container">
+        <div class="row">
+            <div class="col-9">
+                <h2 class="p-3">Roles Management</h2>
+
+                <div class="collapse m-3" id="collapseExample">
+                    <div class="card card-body">
+                        <form asp-controller="Admin" asp-action="AddRole">
+                            <div class="row">
+                                <div class="col-2">
+                                    <strong><label for="roleName" class="p-2">Role Name:</label></strong>
+                                </div>
+                                <div class="col-8">
+                                    <input type="text" id="roleName" name="roleName" class="form-control" />
+                                </div>
+                                <div class="col-2">
+                                    <button type="submit" class="btn btn-dark">Submit</button>
+                                </div>
+                            </div>                                                        
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="col-3 text-center">
+                <a class="btn btn-dark mt-4" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample"><i class="bi bi-plus-circle m-1"></i>Add Roles</a>
+            </div>
+        </div>@* row ends *@
+        <div class="row table table-bordered">
+            @for(int i = 0; i < 1; i++)
+            {                
+                <h5>Current Existing Roles</h5>
+                RolesVM temp = Model[i];
+                @foreach(var roles in temp.AvailableRoles)
+                {
+                    <div class="col-2 m-2 bg-dark text-light"><strong>@roles.Value </strong><a  asp-controller="Admin" asp-action="DeleteRole" asp-route-roleName="@roles.Value"><i class="bi bi-trash text-light"></i></a></div>
+                }
+                
+            }
+        </div>
+    
+        <table class="table table-striped table-bordered table-hover shadow">
+            <thead class="table-dark">
+                <tr>
+                    <th class="text-center">User Name</th>
+                    <th class="text-center">Current Roles</th>
+                    <th class="text-center">Assign Role</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var user in Model)
+                {
+                    <tr>
+                        <td>@user.UserName</td>
+                        <td class="text-center">
+                            @if (user.Roles.Count > 0)
+                            {
+                                @foreach (var role in user.Roles)
+                                {
+                                    <span class="badge bg-info">@role</span>
+                                }
+                            }
+                            else
+                            {
+                                <span class="badge bg-secondary">No roles</span>
+                            }
+                        </td>
+                        <td>
+                            <form asp-action="AssignRole" asp-controller="Admin" method="post">
+                                <input type="hidden" name="UserId" value="@user.UserId" />
+                                <div class="row">
+                                    <div class="col-8">
+                                        <select name="RoleName" class="form-select">
+                                            <option value="">Select Role</option>
+                                            @foreach (var role in user.AvailableRoles)
+                                            {
+                                                <option value="@role.Value">@role.Text</option>
+                                            }
+                                        </select>
+
+                                    </div>
+                                    <div class="col-2">
+                                        <button type="submit" class="btn btn-success btn-sm mt-2">Assign</button>
+                                    </div>
+                                </div>
+
+                            </form>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+
+    </body>
+    

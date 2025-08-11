@@ -1,0 +1,174 @@
+﻿@using FitnessTracker.Infrastructure
+@using Microsoft.AspNetCore.Http;
+@inject IHttpContextAccessor HttpContextAccessor;
+@using Microsoft.AspNetCore.Identity
+@inject UserManager<FitnessTracker.Models.Entities.ApplicationUser> UserManager
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - FitnessTracker</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/FitnessTracker.styles.css" asp-append-version="true" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css" integrity="sha512-3pIirOrwegjM6erE5gPSwkUzO+3cTjpnV9lexlNZqvupR64iZBnOOTiiLPb9M36zpMScbmUNIcHUqKD47M719g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow ">
+            
+            <div class="container-fluid">
+                <img class="img-fluid m-1" height="50px" width="50px" src="~/Images/weight.png" />
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index"><sapn style="color:#fa5744">Fitness</sapn>Tracker</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-center">
+                    <ul class="navbar-nav flex-grow-0">
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                        </li>
+                        @if (User.Identity.IsAuthenticated)
+                        {
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle text-dark" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    Workouts
+                                </a>
+                                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                    <li><a class="dropdown-item" asp-controller="Workout" asp-action="WorkoutIndex">Workout/Diet Categories</a></li>
+                                    <li><a class="dropdown-item" asp-controller="Workout" asp-action="PersonalizedWorkout">Personalized Workouts</a></li>
+                                </ul>
+                            </li>
+                        }
+                        else
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-controller="Workout" asp-action="WorkoutIndex">Workouts</a>
+                            </li>
+                        }
+
+
+                        @if (Context.Request.Path.ToString().Contains("Shop"))
+                        {
+                            <li class="nav-item dropdown">
+                                <a class="btn btn-white dropdown-toggle text-black" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    Shop
+                                </a>
+
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item text-black" asp-controller="Order" asp-action="OrderHistory">Order History</a></li>
+                                </ul>
+                            </li>
+                        }
+                        else
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Shop">Shop</a>
+                            </li>
+                        }
+
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Admin" asp-action="Dashboard">Dashboard</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="" asp-action="">Community</a>
+                        </li>
+                        
+                    </ul>
+                    
+                </div>
+                @if (Context.Request.Path.ToString().Contains("Shop") || Context.Request.Path.ToString().Contains("CartIndex"))
+                    {
+                    @if (HttpContextAccessor.HttpContext.Session.GetInt32(cartCount.sessionCount) != null)
+                    {
+                        <a asp-controller="Cart" asp-action="CartIndex" class="nav-link text-dark">
+                            @{
+                                var count = HttpContextAccessor.HttpContext.Session.GetInt32(cartCount.sessionCount);
+                            }
+                            <i class="bi bi-cart3 m-2">
+                                <strong>(@count)</strong>
+                            </i>
+                        </a>
+                    }
+                    else
+                    {
+                        <a asp-controller="Cart" asp-action="CartIndex" class="nav-link text-dark">
+
+                            <i class="bi bi-cart3 m-2">
+                                <strong>(0)</strong>
+                            </i>
+                        </a>
+                    }
+                }
+               
+                @if (User.Identity.IsAuthenticated)
+                {
+                    var user = await UserManager.GetUserAsync(User);
+                    if (user != null)
+                    {
+                        <strong>Hello! <span class="text-success">@user.FirstName</span></strong>
+                    }
+                    <li class="nav-item dropdown" style="list-style-type: none;">
+                        <button class="nav-link dropdown-toggle text-dark" data-bs-toggle="dropdown" aria-expanded="false" style="background-color: transparent; border: none; outline: none;">
+                            <span class="caret"></span>
+                        </button>
+                        <!-- Added the 'dropdown-menu-end' class to align the dropdown to the right -->
+                        <ul class="dropdown-menu dropdown-menu-dark opensLeft dropdown-menu-end">
+                            <li><a class="dropdown-item" href="#">Action</a></li>
+                            <li><a type="button" class="dropdown-item" asp-controller="Admin" asp-action="Logout">Logout</a></li>
+                        </ul>
+                    </li>
+                }
+                else
+                {
+                    <a type="button" class="btn btn-light m-2 text-dark" asp-controller="Home" asp-action="Signup">Sign Up</a>
+                    <a type="button" class="btn btn-dark m-2 text-light" asp-controller="Home" asp-action="Login">Log In</a>
+
+                }
+            </div>        
+            
+        </nav>
+    </header>
+    <div>
+        <main role="main" class="pb-3">
+            @* <partial name="_Notification" /> *@
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="border-top footer text-muted">
+        <div class="container text-center">
+            &copy; 2024 - FitnessTracker - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+        </div>
+    </footer>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/microsoft-signalr/5.0.11/signalr.min.js"></script>
+    <script>
+        const connection = new signalR.HubConnectionBuilder()
+            .withUrl("/userStatusHub")
+            .build();
+
+        // Receive status updates from the hub
+        connection.on("ReceiveStatusUpdate", (userId, isOnline) => {
+            const badge = document.querySelector(`#userStatus-${userId}`);
+            if (badge) {
+                badge.className = isOnline ? "badge badge-sm bg-gradient-success" : "badge badge-sm bg-gradient-secondary";
+                badge.textContent = isOnline ? "Online" : "Offline";
+            }
+        });
+
+        // Start the connection
+        connection.start().catch(err => console.error("SignalR Connection Error: ", err));
+    </script>
+
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

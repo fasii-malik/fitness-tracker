@@ -1,0 +1,129 @@
+﻿@model FitnessTracker.Models.PersonalizedWorkoutVM
+<body style="background: #110f16">
+    <h2 class="text-center m-3 text-secondary">Personalized Workouts</h2>
+
+    <div class="card m-3">
+        <div class="card-body bg-light">
+         
+            @if (@Model.users.workout_diet_plan != null)
+            {
+                <h6 class="text-center">You Have Assigned <span class="text-success">@Model.users.workout_diet_plan</span> Workout Plan by Trainer <a asp-action="WorkoutIndex"><i class="bi bi-arrow-right"></i></a></h6>
+               @*  <i style="font-size:50px;" class="bi bi-dot text-success"></i> *@
+            }
+            else
+            {
+                <h6 class="text-center text-danger">Not Assigned</h6>
+            }
+        </div>
+    </div>
+    
+        @if (Model.personalizedWorkoutsList.Count > 0)
+        {
+            @foreach (var items in Model.personalizedWorkoutsList)
+            {
+            <div class="row m-3">
+                <div class="card">
+                    <div class="card-body bg-light">
+                        <div class="row">
+                            <h6 class="text-center"><strong>@items.ExerciseName</strong></h6>
+                            <p class="text-center text-danger">@items.CreatedDate.ToLongDateString()</p>
+                            <a class="btn btn-dark" asp-controller="Workout" asp-action="DeletePersonalizedWorkout" asp-route-id="@items.ExerciseId">Delete</a>
+                        </div>
+
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th scope="col"></th>
+                                    <th scope="col">Reps</th>
+                                    <th scope="col">Weight(kg)</th>                                    
+                                    <th scope="col">Time</th>
+                                    <th scope="col"></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @{
+                                    int serialNo = 1;
+                                }
+                                    @foreach(var sets in items.Sets)
+                                    {
+                                    <tr>
+                                    <th scope="row">@serialNo</th>
+                                        <td><strong>@sets.Reps</strong></td>
+                                        <td><strong>@sets.Weight</strong></td>
+                                    <td>@sets.SetDateTime.ToShortTimeString()</td>
+                                    <td><a class="btn btn-light" asp-controller="Workout" asp-action="DeleteSet" asp-route-setId="@sets.SetId"><i class="bi bi-trash"></i></a></td>
+                                    </tr>
+                                    serialNo++;
+                                }
+                                                          
+                            </tbody>
+                        </table>
+                        <div class="row">
+                            <div class="col-6">
+                                <a class="text-danger btn btn-light" data-bs-toggle="collapse" href="#collapseExample-@items.ExerciseId" role="button" aria-expanded="false" aria-controls="collapseExample"><i class="bi bi-plus-lg"></i><span class="m-1">Set</span></a>
+                            </div>
+                            <div class="col-6 text-end">
+                                <a class="text-danger btn btn-light"><i class="bi bi-plus-lg"></i><span class="m-1">Warm Up</span></a>
+                            </div>
+                        </div>
+
+                        <div class="collapse m-3" id="collapseExample-@items.ExerciseId">
+                            <div class="card card-body bg-dark text-light" style="width:35rem">
+                                <form asp-controller="Workout" asp-action="PersonalizedWorkout">
+                                    <input type="hidden" asp-for="@Model.PSet.ExerciseId" value="@items.ExerciseId" />
+                                    <div class="row">
+                                        <div class="col-5">
+                                            <div class="mb-3">
+                                                <label asp-for="@Model.PSet.Reps" for="exampleInputText1" class="form-label">Reps</label>
+                                                <input asp-for="@Model.PSet.Reps" type="number" class="form-control" id="exampleInputText1" aria-describedby="numberHelp">
+                                            </div>
+                                        </div>
+                                        <div class="col-5">
+                                            <div class="mb-3">
+                                                <label asp-for="@Model.PSet.Weight" for="exampleInputText2" class="form-label">Weight(kg)</label>
+                                                <input asp-for="@Model.PSet.Weight" type="number" class="form-control" id="exampleInputText2" aria-describedby="numberHelp">
+                                            </div>
+                                        </div>
+                                        <div class="col-2">
+                                            <label class="mb-2">___</label>
+                                            <button type="submit" class="btn btn-primary">Submit</button>
+                                        </div>
+                                    </div>                                                                                                          
+                                </form>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            @* first row end *@
+            <hr class="text-secondary"/>
+            }
+        }
+        else
+        {
+            <h3 class="text-center p-4 text-secondary">No Exercises Added. If you want to add click Add Exercise.</h3>
+        }
+
+    <div class="row">
+
+        <div class="col-6 text-end">
+            <a class="btn btn-secondary text-dark" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">Add Exercise</a>
+            <div class="collapse m-4" id="collapseExample">
+                <div class="card card-body bg-secondary text-center">
+                    <form asp-controller="Workout" asp-action="PersonalizedWorkout" method="post">
+                        <input asp-for="personalizedWorkout.UserId" value="@Model.users.Id" hidden/>
+                        <div class="mb-3">
+                            <label asp-for="personalizedWorkout.ExerciseName" class="form-label">Name of Exercise</label>
+                            <input type="text" asp-for="personalizedWorkout.ExerciseName" class="form-control" id="exampleInputName1" aria-describedby="nameHelp" required>                          
+                        </div>
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="col-6 text-start">
+            <a class="btn btn-secondary text-dark">Special Set</a>
+        </div>
+    </div>
+</body>

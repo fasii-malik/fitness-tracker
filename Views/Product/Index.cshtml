@@ -1,0 +1,61 @@
+﻿
+@model List<FitnessTracker.Models.Entities.Product>
+
+<!DOCTYPE html>
+<html lang="en">
+    <body>
+<div class="BorderWithColorProd">
+    <div class="row">
+        <div class="col-12">
+            <h2 class="text-dark">Product List</h2>
+            <hr />
+        </div>
+        <div class="col-5">
+            <a asp-action="Add" class="btn btn-dark form-control">Add Product</a>
+        </div>
+
+        <div class="PaddingAllWhite">
+            @if (Model.Count() > 0)
+            {
+                <div class="table-responsive">
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr class="bg-secondary text-white">
+                                <th>Name</th>
+                                <th>Price</th>
+                                <th>Description</th>
+                                <th>Category</th>
+                                <th>Image</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var items in Model)
+                            {
+                                <tr>
+                                    <td>@items.Name</td>
+                                    <td>@items.Price <span >PKR</span></td>
+                                    <td>@Html.Raw(@items.Description)</td>
+                                    <td>@items.Category.Name</td>
+                                    <td>
+                                        <img src="Images/@items.HomeImgUrl" alt="No Image" class="rounded img-fluid" width="150" height="100"/>
+                                    </td>
+                                    <td>
+                                        <a asp-route-id="@items.Id" asp-controller="Product" asp-action="Edit" class="btn btn-primary mb-1 form-control">Edit</a>
+                                            <a asp-route-id="@items.Id" asp-controller="Product" asp-action="Delete" class="btn btn-danger form-control">Delete</a>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            }
+            else
+            {
+                <h1>No Items</h1>
+            }
+        </div>
+    </div>
+</div>
+</body>
+</html>
